@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Waze Ecuador - Tráfico en Tiempo Real</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗺️</text></svg>">
+</head>
+<body>
+    <div id="map" class="map-view"></div>
+    
+    <header class="top-bar">
+        <div class="search-container">
+            <button class="menu-btn">☰</button>
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="searchInput" placeholder="Buscar lugar o dirección...">
+            </div>
+            <button class="report-btn">⚠️</button>
+        </div>
+    </header>
+
+    <div class="floating-buttons">
+        <button class="float-btn" id="zoomIn">+</button>
+        <button class="float-btn" id="zoomOut">−</button>
+        <button class="float-btn" id="centerLocation">📍</button>
+    </div>
+
+    <div class="traffic-indicator" id="trafficIndicator">
+        <span class="traffic-dot"></span>
+        <span class="traffic-text">Tráfico en vivo</span>
+    </div>
+
+    <div class="bottom-sheet" id="bottomSheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-content">
+            <div class="route-info" id="routeInfo">
+                <div class="eta-info">
+                    <span class="eta-time" id="etaTime">12 min</span>
+                    <span class="eta-distance" id="etaDistance">8.5 km</span>
+                </div>
+                <div class="route-details" id="routeDetails">
+                    <div class="route-step">
+                        <span class="step-icon">⬆️</span>
+                        <span class="step-text">Av. Amazonas hacia el norte</span>
+                        <span class="step-distance">2.3 km</span>
+                    </div>
+                    <div class="route-step">
+                        <span class="step-icon">↗️</span>
+                        <span class="step-text">Giro a la derecha - Av. República</span>
+                        <span class="step-distance">1.8 km</span>
+                    </div>
+                    <div class="route-step">
+                        <span class="step-icon">⬆️</span>
+                        <span class="step-text">Continuar por Av. 10 de Agosto</span>
+                        <span class="step-distance">3.2 km</span>
+                    </div>
+                    <div class="route-step">
+                        <span class="step-icon">↩️</span>
+                        <span class="step-text">Giro a la izquierda - Destino</span>
+                        <span class="step-distance">1.2 km</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="alerts-list" id="alertsList"></div>
+            
+            <div class="reports-panel" id="reportsPanel">
+                <h3>Reportes cercanos</h3>
+                <div class="reports-container" id="reportsContainer"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation-bar">
+        <button class="nav-btn active">🗺️</button>
+        <button class="nav-btn">🛣️</button>
+        <button class="nav-btn" id="settingsBtn">⚙️</button>
+    </div>
+
+    <div class="route-line" id="routeLine"></div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/waze-map.js"></script>
+    <script src="js/waze-traffic.js"></script>
+    <script src="js/waze-app.js"></script>
+</body>
+</html>
